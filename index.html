@@ -31,7 +31,7 @@
     content="https://noppoman.github.io/mathematical-theory-of-pca/">
   <meta data-n-head="true" data-hid="twitter:title" property="twitter:title" content="主成分分析(PCA)の数学的な理論とPythonによる実装">
   <meta data-n-head="true" data-hid="twitter:description" property="twitter:description"
-    content="主成分分析(PCA)の数学的な理論とPythonによる実装 Author: Yuki Takei (noppoMan) Github: https://github.com/noppoMan Twitter: https://twitter.com/noppoMan722 Blog: https://note.com/noppoman これは、noteの主成分分析の背景にある数学理論の話(最適化問題)の本文です。 主成分分析の数学的な理論の理解に必要な知識 主成分分析は、アルゴリズム的な観点で見るとデータの分散を最大化させる最適化問題であり、その理論は数学（とくに微分学、線形代数）により与えられている。以下は、主成分分析で使われる数学の分野をざっくりとリストしたものである。">      
+    content="主成分分析(PCA)の数学的な理論とPythonによる実装 Author: Yuki Takei (noppoMan) Github: https://github.com/noppoMan Twitter: https://twitter.com/noppoMan722 Blog: https://note.com/noppoman これは、noteの主成分分析の背景にある数学理論の話(最適化問題)の本文です。 主成分分析の数学的な理論の理解に必要な知識 主成分分析は、アルゴリズム的な観点で見るとデータの分散を最大化させる最適化問題であり、その理論は数学（とくに微分学、線形代数）により与えられている。以下は、主成分分析で使われる数学の分野をざっくりとリストしたものである。">  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -17336,14 +17336,14 @@ Adapted from GitHub theme
             \frac{\partial L}{\partial \bm{a}} &amp;=&amp; 2S\bm{a} - 2\lambda\bm{a} = S\bm{a} - \lambda\bm{a} = 0 \\
             &amp;\Longleftrightarrow&amp; S\bm{a} = \lambda\bm{a}
             \end{eqnarray}
-            $$<p>の固有値問題を得る。上式に${}^t\bm{u}$をかければ</p>
+            $$<p>の固有値問題を得る。上式に${}^t\bm{a}$をかければ</p>
             $$
             \begin{eqnarray}
             \langle \bm{a}S, \bm{a} \rangle &amp;=&amp; \lambda \\
             &amp;\Longleftrightarrow&amp; \lambda = V_{w_1}
             \end{eqnarray}
             $$<p>
-              を得る。これはもともと最大化したかった$w_1$の分散そのものに他ならない。つまり、$\bm{u}$は固有値（$w_1$の最大の分散)$\lambda$に対応する固有ベクトルである。この固有ベクトルが分散を最大化するための「<strong>方向</strong>」となる。$\bm{a}$が定まったことにより、$w_1$が第一主成分となった。
+              を得る。これはもともと最大化したかった$w_1$の分散そのものに他ならない。つまり、$\bm{a}$は固有値（$w_1$の最大の分散)$\lambda$に対応する固有ベクトルである。この固有ベクトルが分散を最大化するための「<strong>方向</strong>」となる。$\bm{a}$が定まったことにより、$w_1$が第一主成分となった。
             </p>
             <h3 id="&#31532;&#20108;&#12289;&#31532;&#19977;&#20027;&#25104;&#20998;&#12398;&#23566;&#20986;">
               &#31532;&#20108;&#12289;&#31532;&#19977;&#20027;&#25104;&#20998;&#12398;&#23566;&#20986;<a
@@ -17368,7 +17368,7 @@ Adapted from GitHub theme
             g_n(\bm{x})
             $$<p>である。なお、$w_2$と$w_1$が直交する条件は、</p>
             $$
-            \langle \bm{w}_1, \bm{w}_2 \rangle = \sum_{i=1}^p &lt;a_i\bm{x}_i, b_i\bm{x}_i&gt; = 0
+            \langle \bm{w}_1, \bm{w}_2 \rangle = \sum_{i=1}^p \langle a_i\bm{x}_i, b_i\bm{x}_i \rangle = 0
             $$<p>である。したがって、第二の制約条件は$\langle \bm{a}, \bm{b} \rangle = 0$である。これらをもとにラグランジュ関数を</p>
             $$
             L(\bm{b}, \lambda, \mu) = \langle \bm{b}S, \bm{b} \rangle - \lambda(\langle \bm{b}, \bm{b} \rangle - 1) -
