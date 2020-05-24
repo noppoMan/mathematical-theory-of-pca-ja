@@ -26,7 +26,7 @@
     content="https://noppoman.github.io/mathematical-theory-of-pca/">
   <meta data-n-head="true" data-hid="twitter:title" property="twitter:title" content="主成分分析(PCA)の数学的な理論とPythonによる実装">
   <meta data-n-head="true" data-hid="twitter:description" property="twitter:description"
-    content="主成分分析(PCA)の数学的な理論とPythonによる実装 Author: Yuki Takei (noppoMan) Github: https://github.com/noppoMan Twitter: https://twitter.com/noppoMan722 Blog: https://note.com/noppoman これは、noteの主成分分析の背景にある数学理論の話(最適化問題)の本文です。 主成分分析の数学的な理論の理解に必要な知識 主成分分析は、アルゴリズム的な観点で見るとデータの分散を最大化させる最適化問題であり、その理論は数学（とくに微分学、線形代数）により与えられている。以下は、主成分分析で使われる数学の分野をざっくりとリストしたものである。">  
+    content="主成分分析(PCA)の数学的な理論とPythonによる実装 Author: Yuki Takei (noppoMan) Github: https://github.com/noppoMan Twitter: https://twitter.com/noppoMan722 Blog: https://note.com/noppoman これは、noteの主成分分析の背景にある数学理論の話(最適化問題)の本文です。 主成分分析の数学的な理論の理解に必要な知識 主成分分析は、アルゴリズム的な観点で見るとデータの分散を最大化させる最適化問題であり、その理論は数学（とくに微分学、線形代数）により与えられている。以下は、主成分分析で使われる数学の分野をざっくりとリストしたものである。">    
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -16809,15 +16809,15 @@ Adapted from GitHub theme
             <p>$\frac{\partial L}{\partial x}, \frac{\partial L}{\partial y}$に関して$L$を展開すれば</p>
             $$
             \begin{equation}
-            \label{equation: lagrange-multiplier-1}
+            \label{lagrange-multiplier-1}
             \frac{\partial f}{\partial x}(a, b) - \lambda_0 \frac{\partial g}{\partial x}(a, b) = \frac{\partial
             f}{\partial y}(a, b) - \lambda_0 \frac{\partial g}{\partial y}(a, b) = 0
             \end{equation}
             $$<p>により示される。$\frac{\partial L}{\partial \lambda_0}(a, b, \lambda_0) = 0$に関しても同様に$L$を展開すれば、$-g(a, b) =
               0$のみが残り(L 2')の主張が証明される。（つまり、$\frac{\partial L}{\partial \lambda_0} = g(a, b)$である）</p>
             <p>□</p>
-            <p>(L 2) $\Longleftrightarrow$ (L 2') も同様に示しておこう。先に(L 2') $\Longrightarrow$ (L 2)を示す。 式($\ref{equation:
-              lagrange-multiplier-1}$)を連立方程式で表示すると</p>
+            <p>(L 2) $\Longleftrightarrow$ (L 2') も同様に示しておこう。先に(L 2') $\Longrightarrow$ (L 2)を示す。
+              式($\ref{lagrange-multiplier-1}$)を連立方程式で表示すると</p>
             $$
             \begin{cases}
             \frac{\partial f}{\partial x}(a, b) - \lambda_0 \frac{\partial g}{\partial x}(a, b) = 0 \\
@@ -16826,7 +16826,7 @@ Adapted from GitHub theme
             $$<p>より、これを行列表示すれば</p>
             $$
             \begin{equation}
-            \label{equation: lagrange-multiplier-2}
+            \label{lagrange-multiplier-2}
             \begin{pmatrix}
             \frac{\partial f}{\partial x}(a, b) \\
             \frac{\partial f}{\partial y}(a, b)
@@ -16835,8 +16835,8 @@ Adapted from GitHub theme
             \frac{\partial g}{\partial y}(a, b)
             \end{pmatrix} = \bm{0} \hspace{5pt} \Longleftrightarrow \hspace{5pt} \nabla f = \lambda \nabla g
             \end{equation}
-            $$<p>を得る。(L 2) $\Longrightarrow$ (L 2')はこれを逆に辿れば良い。式($\ref{equation: lagrange-multiplier-2}$)について、$\nabla
-              f$と$\nabla g$の関係は平行であることが分かる。（勾配が一致している）
+            $$<p>を得る。(L 2) $\Longrightarrow$ (L 2')はこれを逆に辿れば良い。式($\ref{lagrange-multiplier-2}$)について、$\nabla f$と$\nabla
+              g$の関係は平行であることが分かる。（勾配が一致している）
               このことをより理解するために、次の図を見てもらいたい。</p>
 
           </div>
@@ -17267,7 +17267,7 @@ Adapted from GitHub theme
             \end{pmatrix}
             $$<p>これより、$w_1$の分散は次のようになる。</p>
             $$
-            \begin{eqnarray}
+            \begin{eqnarray*}
             V_{w_1} &amp;=&amp; \frac{1}{n} w_{i1}^2 \\
             &amp;=&amp; \frac{1}{n-1} \sum_{i,j=1}^n \langle \bm{a}, \bm{u}_i \rangle \langle \bm{u}_j, \bm{a} \rangle
             \\
@@ -17275,7 +17275,7 @@ Adapted from GitHub theme
             &amp;=&amp; \langle \bm{a} \left( \frac{1}{n-1}\sum_{i,j=1}^n \langle \bm{u}_i, \bm{u}_j \rangle \right),
             \bm{a} \rangle \\
             &amp;=&amp; \langle \bm{a}S, \bm{a} \rangle
-            \end{eqnarray}
+            \end{eqnarray*}
             $$<p>ここで、最後に導出された行列$S$は共分散行列（相関行列）と呼ばれる形になっている。すなわち</p>
             $$
             S = \begin{pmatrix}
@@ -17340,22 +17340,22 @@ Adapted from GitHub theme
             V_{w_1} = \langle \bm{a}S, \bm{a} \rangle
             $$<p>である。$f(\bm{a}) = V_{w_1}$として、ラグランジュ関数を</p>
             $$
-            \begin{eqnarray}
+            \begin{eqnarray*}
             L(\bm{a}, \lambda) &amp;=&amp; f(\bm{a}) - \lambda g(\bm{a}) \\
             &amp;=&amp; \langle \bm{a}S, \bm{a} \rangle - \lambda(\langle \bm{a}, \bm{a} \rangle - 1)
-            \end{eqnarray}
+            \end{eqnarray*}
             $$<p>とおく。これを$\bm{a}$で微分して(イメージできなければ、$(a_i)$での微分を連立表示しよう)、$0$とおくと</p>
             $$
-            \begin{eqnarray}
+            \begin{eqnarray*}
             \frac{\partial L}{\partial \bm{a}} &amp;=&amp; 2S\bm{a} - 2\lambda\bm{a} = S\bm{a} - \lambda\bm{a} = 0 \\
             &amp;\Longleftrightarrow&amp; S\bm{a} = \lambda\bm{a}
-            \end{eqnarray}
+            \end{eqnarray*}
             $$<p>の固有値問題を得る。上式に${}^t\bm{a}$をかければ</p>
             $$
-            \begin{eqnarray}
+            \begin{eqnarray*}
             \langle \bm{a}S, \bm{a} \rangle &amp;=&amp; \lambda \\
             &amp;\Longleftrightarrow&amp; \lambda = V_{w_1}
-            \end{eqnarray}
+            \end{eqnarray*}
             $$<p>
               を得る。これはもともと最大化したかった$w_1$の分散そのものに他ならない。つまり、$\bm{a}$は固有値（$w_1$の最大の分散)$\lambda$に対応する固有ベクトルである。この固有ベクトルが分散を最大化するための「<strong>方向</strong>」となる。$\bm{a}$が定まったことにより、$w_1$が第一主成分となった。
             </p>
@@ -17369,10 +17369,10 @@ Adapted from GitHub theme
             w_2 = \sum_{i=1}^p \bm{b}\bm{u}_i
             $$<p>のように定義する。この$w_2$の分散を$w_1$同様</p>
             $$
-            \begin{eqnarray}
+            \begin{eqnarray*}
             V_{w_2} &amp;=&amp; \frac{1}{n} w_{i2}^2 \\
             &amp;=&amp; \langle \bm{b}S, \bm{b} \rangle
-            \end{eqnarray}
+            \end{eqnarray*}
             $$<p>と定義する。$V_{w_2}$の最大値をラグランジュの未定乗数法によって求める。制約条件は$w_1$同様に$g(\bm{a}) = a_1^2 + a_p^2 -1 = \langle \bm{a},
               \bm{a} \rangle -1 = 0
               $を用いる。また、$w_2$は$w_1$に直交（つまり無相関）するというもう一つの条件もあるので、これも制約条件として設定しなければいけない。これまで、ラグランジュの未定乗数法は制約条件が一つだけだったが、実は制約条件を複数個設定できる。$g_i$を複数制約条件としてこれを一般化すると
@@ -19374,6 +19374,6 @@ dtype: object
     gtag('js', new Date());
 
     gtag('config', 'UA-159084962-1');
-  </script>      
+  </script>   
 </body>
 </html>
